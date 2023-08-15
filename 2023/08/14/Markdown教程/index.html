@@ -364,12 +364,18 @@
 </blockquote>
 <p>H<del>2</del>O is是液体。</p>
 <p>2^10^ 运算结果是 1024.</p>
-<h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><p>链接: <a target="_blank" rel="noopener" href="https://www.csdn.net/">链接</a>.</p>
-<p>图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" alt="Alt"></p>
-<p>带尺寸的图片: ![Alt](<a target="_blank" rel="noopener" href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw</a> &#x3D;30x30)</p>
-<p>居中的图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center" alt="Alt"></p>
-<p>居中并且带尺寸的图片: ![Alt](<a target="_blank" rel="noopener" href="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center">https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw#pic_center</a> &#x3D;30x30)</p>
-<p>当然，我们为了让用户更加便捷，我们增加了图片拖拽功能。</p>
+<h2 id="插入链接与图片"><a href="#插入链接与图片" class="headerlink" title="插入链接与图片"></a>插入链接与图片</h2><pre class="line-numbers language-none"><code class="language-none">[链接](https:&#x2F;&#x2F;www.csdn.net&#x2F;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>链接: <a target="_blank" rel="noopener" href="https://www.csdn.net/">链接</a>.</p>
+<pre class="line-numbers language-none"><code class="language-none"># 正常插入图片
+ ![图片alt](peaceful-wallpaper-1600x900.jpg &quot;鼠标放在图片上显示的文字&quot;)
+ 
+ #给图片增加链接，请将图像的Markdown 括在方括号中，然后将链接添加在圆括号中。
+ [![图片alt](peaceful-wallpaper-1600x900.jpg &quot;鼠标放在图片上显示的文字&quot;)](https:&#x2F;&#x2F;jaywxy.github.io)
+
+ 带尺寸的图片: &lt;img src&#x3D;&quot;peaceful-wallpaper-1600x900.jpg&quot; width&#x3D;256 height&#x3D;256 &#x2F;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <img src="/2023/08/14/Markdown%E6%95%99%E7%A8%8B/peaceful-wallpaper-1600x900.jpg" alt="图片alt(title)" title="鼠标放在图片上显示的文字"></p>
+<p>带尺寸的图片: <img src="peaceful-wallpaper-1600x900.jpg"  width=256 height=256 /></p>
+<p>居中的图片: <img src="https://markdown.com.cn/assets/img/philly-magic-garden.9c0b4415.jpg#pic_center" alt="Alt"></p>
 <h2 id="如何插入一段漂亮的代码片"><a href="#如何插入一段漂亮的代码片" class="headerlink" title="如何插入一段漂亮的代码片"></a>如何插入一段漂亮的代码片</h2><p>去<a target="_blank" rel="noopener" href="https://mp.csdn.net/console/configBlog">博客设置</a>页面，选择一款你喜欢的代码片高亮样式，下面展示同样高亮的 <code>代码片</code>.</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">ResNetFCN</span><span class="token punctuation">(</span>nn<span class="token punctuation">.</span>Module<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> backbone<span class="token operator">=</span><span class="token string">"resnet34"</span><span class="token punctuation">,</span> pretrained<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> config<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -389,73 +395,7 @@
         self<span class="token punctuation">.</span>layer2 <span class="token operator">=</span> net<span class="token punctuation">.</span>layer2
         self<span class="token punctuation">.</span>layer3 <span class="token operator">=</span> net<span class="token punctuation">.</span>layer3
         self<span class="token punctuation">.</span>layer4 <span class="token operator">=</span> net<span class="token punctuation">.</span>layer4
-
-        <span class="token comment"># Decoder</span>
-        self<span class="token punctuation">.</span>deconv_layer1 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>
-            nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>hiden_size<span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>UpsamplingNearest2d<span class="token punctuation">(</span>scale_factor<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>deconv_layer2 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>
-            nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>hiden_size<span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>UpsamplingNearest2d<span class="token punctuation">(</span>scale_factor<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>deconv_layer3 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>
-            nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ConvTranspose2d<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>hiden_size<span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> dilation<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> output_padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>UpsamplingNearest2d<span class="token punctuation">(</span>scale_factor<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>deconv_layer4 <span class="token operator">=</span> nn<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span>
-            nn<span class="token punctuation">.</span>Conv2d<span class="token punctuation">(</span><span class="token number">512</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">7</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> bias<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ConvTranspose2d<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> dilation<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> output_padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ConvTranspose2d<span class="token punctuation">(</span><span class="token number">64</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>hiden_size<span class="token punctuation">,</span> kernel_size<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> stride<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> dilation<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> output_padding<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>ReLU<span class="token punctuation">(</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            nn<span class="token punctuation">.</span>UpsamplingNearest2d<span class="token punctuation">(</span>scale_factor<span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data_dict<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        x <span class="token operator">=</span> data_dict<span class="token punctuation">[</span><span class="token string">'img'</span><span class="token punctuation">]</span>
-        h<span class="token punctuation">,</span> w <span class="token operator">=</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
-        <span class="token keyword">if</span> h <span class="token operator">%</span> <span class="token number">16</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token keyword">or</span> w <span class="token operator">%</span> <span class="token number">16</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">assert</span> <span class="token boolean">False</span><span class="token punctuation">,</span> <span class="token string">"invalid input size: &#123;&#125;"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>
-
-        <span class="token comment"># Encoder</span>
-        conv1_out <span class="token operator">=</span> self<span class="token punctuation">.</span>relu<span class="token punctuation">(</span>self<span class="token punctuation">.</span>bn1<span class="token punctuation">(</span>self<span class="token punctuation">.</span>conv1<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        layer1_out <span class="token operator">=</span> self<span class="token punctuation">.</span>layer1<span class="token punctuation">(</span>self<span class="token punctuation">.</span>maxpool<span class="token punctuation">(</span>conv1_out<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        layer2_out <span class="token operator">=</span> self<span class="token punctuation">.</span>layer2<span class="token punctuation">(</span>layer1_out<span class="token punctuation">)</span>
-        layer3_out <span class="token operator">=</span> self<span class="token punctuation">.</span>layer3<span class="token punctuation">(</span>layer2_out<span class="token punctuation">)</span>
-        layer4_out <span class="token operator">=</span> self<span class="token punctuation">.</span>layer4<span class="token punctuation">(</span>layer3_out<span class="token punctuation">)</span>
-
-        <span class="token comment"># Deconv</span>
-        layer1_out <span class="token operator">=</span> self<span class="token punctuation">.</span>deconv_layer1<span class="token punctuation">(</span>layer1_out<span class="token punctuation">)</span>
-        layer2_out <span class="token operator">=</span> self<span class="token punctuation">.</span>deconv_layer2<span class="token punctuation">(</span>layer2_out<span class="token punctuation">)</span>
-        layer3_out <span class="token operator">=</span> self<span class="token punctuation">.</span>deconv_layer3<span class="token punctuation">(</span>layer3_out<span class="token punctuation">)</span>
-        layer4_out <span class="token operator">=</span> self<span class="token punctuation">.</span>deconv_layer4<span class="token punctuation">(</span>layer4_out<span class="token punctuation">)</span>
-
-        data_dict<span class="token punctuation">[</span><span class="token string">'img_scale2'</span><span class="token punctuation">]</span> <span class="token operator">=</span> layer1_out
-        data_dict<span class="token punctuation">[</span><span class="token string">'img_scale4'</span><span class="token punctuation">]</span> <span class="token operator">=</span> layer2_out
-        data_dict<span class="token punctuation">[</span><span class="token string">'img_scale8'</span><span class="token punctuation">]</span> <span class="token operator">=</span> layer3_out
-        data_dict<span class="token punctuation">[</span><span class="token string">'img_scale16'</span><span class="token punctuation">]</span> <span class="token operator">=</span> layer4_out
-
-        process_keys <span class="token operator">=</span> <span class="token punctuation">[</span>k <span class="token keyword">for</span> k <span class="token keyword">in</span> data_dict<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">if</span> k<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'img_scale'</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
-        img_indices <span class="token operator">=</span> data_dict<span class="token punctuation">[</span><span class="token string">'img_indices'</span><span class="token punctuation">]</span>
-
-        temp <span class="token operator">=</span> <span class="token punctuation">&#123;</span>k<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> k <span class="token keyword">in</span> process_keys<span class="token punctuation">&#125;</span>
-
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>x<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token keyword">for</span> k <span class="token keyword">in</span> process_keys<span class="token punctuation">:</span>
-                temp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>data_dict<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">.</span>permute<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>img_indices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> img_indices<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">for</span> k <span class="token keyword">in</span> process_keys<span class="token punctuation">:</span>
-            data_dict<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span>temp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> data_dict
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="生成一个适合你的列表"><a href="#生成一个适合你的列表" class="headerlink" title="生成一个适合你的列表"></a>生成一个适合你的列表</h2><ul>
 <li>项目<ul>
@@ -703,17 +643,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/08/15/%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+                <a href="/2023/08/14/Markdown%E6%95%99%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="插入图片">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Markdown教程">
                         
-                        <span class="card-title">插入图片</span>
+                        <span class="card-title">Markdown教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -723,9 +664,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-08-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -733,6 +674,15 @@
                             
                         </span>
                     </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E7%A8%8B-Markdown/">
+                        <span class="chip bg-color">教程 Markdown</span>
+                    </a>
+                    
                 </div>
                 
             </div>
